@@ -7,6 +7,11 @@ createInertiaApp({
         app.use(PrimeVue, {
             theme: {
                 preset: Aura,
+                options: {
+                    prefix: 'p',
+                    darkModeSelector: '.my-app-dark',
+                    cssLayer: false,
+                },
             },
             ripple: true,
         });
