@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import { NAV_STRUCTURE } from '../../constants/navigation';
 
@@ -14,18 +15,18 @@ const navStructure = ref(NAV_STRUCTURE);
             <div
                 class="bg-primary-soft h-full overflow-y-auto border-e border-default px-3 py-4"
             >
-                <a href="/" class="mt-2 mb-5 flex items-center ps-2.5">
+                <Link href="/" class="mt-2 mb-5 flex items-center ps-2.5">
                     <span
                         class="self-center text-lg font-semibold whitespace-nowrap text-heading"
                         >NSTP Profiling System
                     </span>
-                </a>
+                </Link>
                 <div v-for="section in navStructure" :key="section.header">
                     <ul
                         class="mt-4 space-y-2 border-t border-default pt-4 font-medium"
                     >
                         <li v-for="link in section.links" :key="link.title">
-                            <a
+                            <Link
                                 :href="link.href"
                                 class="group flex items-center rounded-base px-2 py-1.5 text-body transition duration-75 hover:bg-neutral-tertiary hover:text-fg-brand"
                             >
@@ -37,7 +38,7 @@ const navStructure = ref(NAV_STRUCTURE);
                                 <span class="ms-3 flex-1 whitespace-nowrap">{{
                                     link.text
                                 }}</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
