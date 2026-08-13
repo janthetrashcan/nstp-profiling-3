@@ -1,0 +1,25 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('student_activity_logs', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('student_enrollment_id')->constrained('student_enrollments')->cascadeOnDelete();
+            $table->string('activity_name');
+            $table->date('date')->nullable();
+            $table->float('hours_rendered')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('student_activity_logs');
+    }
+};

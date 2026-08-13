@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\AcademicTerm;
 
 class AcademicTermSeeder extends Seeder
 {
@@ -12,6 +12,11 @@ class AcademicTermSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        AcademicTerm::create([
+            'academic_year' => '2026-2027',
+            'semester' => 1,
+            'is_current' => true,
+            'is_grading_open' => true,
+        ]);
     }
 }
